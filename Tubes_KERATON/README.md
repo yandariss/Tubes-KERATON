@@ -1,15 +1,17 @@
 # Tubes_KERATON
+
 **IF25-21013 Strategi Algoritma — Semester Genap 2026/2027**  
 Institut Teknologi Sumatera
 
 ---
 
 ## Kelompok KERATON
-| Nama | NIM |
-|------|-----|
-| Anggota 1 | NIM 1 |
-| Anggota 2 | NIM 2 |
-| Anggota 3 | NIM 3 |
+
+| Nama                        | NIM       |
+| --------------------------- | --------- |
+| Muhammad Riyan Daris        | 124140146 |
+| Edgar Yohanes Ivanov Sinaga | 124140187 |
+| AMBROSIUS KRISTIAN JALU U   | 124140211 |
 
 ---
 
@@ -19,12 +21,12 @@ Tugas besar ini mengimplementasikan **algoritma greedy** pada bot permainan **Ro
 
 ### Bot yang Dikembangkan
 
-| Bot | File | Heuristik | Strategi |
-|-----|------|-----------|---------|
-| **KERATON** *(main)* | `src/main-bot/` | `score = enemyEnergy / distance` | **Confidence Scoring Greedy** — pilih musuh yang lemah sekaligus dekat |
-| KERATON-Aggressive | `src/alternative-bots/alt-bot-1/` | `score = 1 / distance` | Selalu serang musuh terdekat dengan daya penuh |
-| KERATON-Survival | `src/alternative-bots/alt-bot-2/` | `score = enemyCount × selfEnergy` | Prioritas bertahan hidup; serang hanya saat kondisi aman |
-| KERATON-Corner | `src/alternative-bots/alt-bot-3/` | `score = cornerDist + (1/enemyEnergy)` | Prioritas musuh yang terjebak di sudut arena |
+| Bot                  | File                              | Heuristik                              | Strategi                                                               |
+| -------------------- | --------------------------------- | -------------------------------------- | ---------------------------------------------------------------------- |
+| **KERATON** _(main)_ | `src/main-bot/`                   | `score = enemyEnergy / distance`       | **Confidence Scoring Greedy** — pilih musuh yang lemah sekaligus dekat |
+| KERATON-Aggressive   | `src/alternative-bots/alt-bot-1/` | `score = 1 / distance`                 | Selalu serang musuh terdekat dengan daya penuh                         |
+| KERATON-Survival     | `src/alternative-bots/alt-bot-2/` | `score = enemyCount × selfEnergy`      | Prioritas bertahan hidup; serang hanya saat kondisi aman               |
+| KERATON-Corner       | `src/alternative-bots/alt-bot-3/` | `score = cornerDist + (1/enemyEnergy)` | Prioritas musuh yang terjebak di sudut arena                           |
 
 ---
 
@@ -72,9 +74,11 @@ Tubes_KERATON/
 - Game engine: `robocode-tankroyale-gui-0.30.0.jar` (versi modifikasi asisten ITERA)
 
 Cek versi .NET yang terinstal:
+
 ```bash
 dotnet --version
 ```
+
 > Jika versi yang terinstal adalah `net8.0`, ubah `<TargetFramework>net6.0</TargetFramework>` pada file `.csproj` masing-masing bot menjadi `net8.0`.
 
 ---
@@ -133,12 +137,14 @@ dotnet run --no-build
 Atau gunakan script runner yang sudah disediakan:
 
 **Windows:**
+
 ```cmd
 cd src\main-bot
 KERATON.cmd
 ```
 
 **Linux / macOS:**
+
 ```bash
 cd src/main-bot
 chmod +x KERATON.sh
@@ -149,12 +155,12 @@ chmod +x KERATON.sh
 
 ## Troubleshooting
 
-| Masalah | Solusi |
-|---------|--------|
+| Masalah                                 | Solusi                                                                          |
+| --------------------------------------- | ------------------------------------------------------------------------------- |
 | Bot tidak muncul di panel "Joined Bots" | Pastikan path tidak mengandung spasi; cek `<TargetFramework>` sesuai versi .NET |
-| `GunHeat` selalu > 0 | Bot menunggu meriam dingin secara otomatis — normal |
-| Bot menabrak dinding terus | Pastikan `AvoidWalls()` dipanggil setiap turn di dalam `Run()` |
-| Bot tidak terdeteksi radar | `SetTurnRadarRight(double.PositiveInfinity)` harus dipanggil setiap turn |
+| `GunHeat` selalu > 0                    | Bot menunggu meriam dingin secara otomatis — normal                             |
+| Bot menabrak dinding terus              | Pastikan `AvoidWalls()` dipanggil setiap turn di dalam `Run()`                  |
+| Bot tidak terdeteksi radar              | `SetTurnRadarRight(double.PositiveInfinity)` harus dipanggil setiap turn        |
 
 ---
 
